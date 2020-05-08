@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+const StoreName = "RECOMMEND";
 const defaultState = {
   bannerList: [],
   recommendList: [],
@@ -9,7 +10,7 @@ const defaultState = {
 const keys = Object.keys(defaultState);
 const constants = keys.map((key) => "SET_" + key.toUpperCase());
 
-const constantsContent = constants.map((consts) => `export const ${consts} = "${consts}";`).join("\n");
+const constantsContent = constants.map((consts) => `export const ${consts} = "${StoreName}_${consts}";`).join("\n");
 console.log(constantsContent);
 fs.writeFile("./constanst.js", constantsContent, function (error) {
   if (error) {

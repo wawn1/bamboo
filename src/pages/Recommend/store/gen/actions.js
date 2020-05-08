@@ -24,6 +24,13 @@ export function toggleEnterLoading() {
       };
     }
 
+export function setEnterLoading(enterLoading) {
+      return {
+        type: SET_ENTERLOADING,
+        payload: enterLoading,
+      };
+    }
+
 export function togglePullDownLoading() {
       return (dispatch, getState) => {
         const {pullDownLoading} = getState();
@@ -31,5 +38,12 @@ export function togglePullDownLoading() {
           type: SET_PULLDOWNLOADING,
           payload: !pullDownLoading,
         });
+      };
+    }
+
+export function setPullDownLoading(pullDownLoading) {
+      return {
+        type: SET_PULLDOWNLOADING,
+        payload: pullDownLoading,
       };
     }
