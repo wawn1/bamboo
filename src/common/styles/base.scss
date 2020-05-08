@@ -1,0 +1,30 @@
+@import "variable.scss";
+
+body,
+html {
+  line-height: 1;
+  font-family: "PingFang SC", "STHeitiSC-Light", "Helvetica-Light", arial, sans-serif, "Droid Sans Fallback";
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: $color-background;
+  color: $color-text;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 5000ms ease-out;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+.fade-appear-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}

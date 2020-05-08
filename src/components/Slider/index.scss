@@ -1,0 +1,26 @@
+@import "../../common/styles/variable.scss";
+@import "../../common/styles/mixin.scss";
+
+.slider-container {
+  position: relative;
+  width: 98%;
+  height: 148px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 6px;
+  .slider-nav {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-pagination {
+    position: absolute !important;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $color-theme !important;
+  }
+  .swiper-pagination-bullet {
+    background-color: white;
+  }
+}

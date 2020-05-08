@@ -1,0 +1,62 @@
+@import "../../common/styles/variable.scss";
+@import "../../common/styles/mixin.scss";
+
+.recommend {
+  position: fixed;
+  width: 100%;
+  top: 88px;
+  bottom: 0;
+}
+
+.recommend-list {
+  .list-title {
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    font-size: $font-size-medium;
+    color: $color-theme;
+  }
+  .list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .list-item {
+      width: 30%;
+      border-radius: 10px;
+      overflow: hidden;
+      .imgWrapper {
+        position: relative;
+
+        &__playCount {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          padding: 2px;
+          font-size: 12px;
+          line-height: 15px;
+          color: rgb(241, 241, 241);
+          white-space: pre;
+        }
+      }
+      .desc {
+        height: 38px;
+        margin: 2px;
+        text-align: left;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        text-overflow: ellipsis;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+    }
+  }
+}
