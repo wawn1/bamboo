@@ -8,8 +8,8 @@ import {useSize} from "react-use";
 import "./index.scss";
 
 const Scroll = forwardRef((props, ref) => {
-  const {direction, click, pullUpLoading, pullDownLoading, bounceTop, bounceBottom} = props;
-  const {pullUp, pullDown, onScroll} = props;
+  const {className, style, direction, click, pullUpLoading, pullDownLoading, bounceTop, bounceBottom} = props;
+  const {pullUp, pullDown, onScroll, onHeightChange} = props;
 
   const [bScroll, setBScroll] = useState();
   const scrollContainerRef = useRef();
@@ -81,6 +81,10 @@ const Scroll = forwardRef((props, ref) => {
     }
   }, [width, height, bScroll]);
 
+  useEffect(() => {
+    onHeightChange();
+  }, [height]);
+
   useImperativeHandle(ref, () => ({
     refresh() {
       if (bScroll) {
@@ -99,7 +103,7 @@ const Scroll = forwardRef((props, ref) => {
   const PullDowndisplayStyle = pullDownLoading ? {display: ""} : {display: "none"};
 
   return (
-    <div className="scroll-container" ref={scrollContainerRef}>
+    <div className={className ? className : "scroll-container"} style={style} ref={scrollContainerRef}>
       {children}
       <div className="pullup-loading" style={PullUpdisplayStyle}>
         <Loading />
@@ -121,11 +125,13 @@ Scroll.defaultProps = {
   pullDown: null,
   bounceTop: true,
   bounceBottom: true,
+  onHeightChange: () => {},
 };
 
 Scroll.propTypes = {
   direction: PropTypes.oneOf(["vertical", "horizental"]),
   onScroll: PropTypes.func,
+  onHeightChange: PropTypes.func,
   pullUp: PropTypes.func,
   pullDown: PropTypes.func,
   pullUpLoading: PropTypes.bool,

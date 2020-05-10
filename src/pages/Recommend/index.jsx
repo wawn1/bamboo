@@ -46,7 +46,7 @@ _RecommendList.propTypes = {
 
 const RecommendList = recommendListConnect(_RecommendList);
 
-const Recommend = ({enterLoading, pullDownLoading, setBannerList, setRecommendList}) => {
+const Recommend = ({hasBottom, enterLoading, pullDownLoading, setBannerList, setRecommendList}) => {
   useEffect(() => {
     reqBanner().then((res) => {
       if (res.code === OK) {
@@ -61,9 +61,9 @@ const Recommend = ({enterLoading, pullDownLoading, setBannerList, setRecommendLi
       }
     });
   }, []);
-
+  const bottomstl = hasBottom ? {bottom: "60px"} : {};
   return (
-    <div className="recommend">
+    <div className="recommend" style={bottomstl}>
       <Scroll probeType={3} onScroll={forceCheck}>
         <Slider />
         <RecommendList />

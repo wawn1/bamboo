@@ -1,0 +1,4 @@
+export const SET_SONGS = "MUSICLIST_SET_SONGS";
+export const SET_TITLE = "MUSICLIST_SET_TITLE";
+export const SET_RANK = "MUSICLIST_SET_RANK";
+export const SET_BGIMAGE = "MUSICLIST_SET_BGIMAGE";
