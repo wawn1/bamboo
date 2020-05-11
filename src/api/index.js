@@ -4,6 +4,8 @@ import ajax from "./ajax";
 export const reqBanner = () => ajax("/banner");
 // 请求推荐列表
 export const reqRecommendList = () => ajax("/personalized?limit=51");
+// 请求歌单详情
+export const reqDiscDetail = (id) => ajax(`/playlist/detail?id=${id}`);
 // 请求热门歌手列表
 export const reqHotSinger = () => ajax("/top/artists?offset=0&limit=100");
 // 请求歌手热门50首歌曲

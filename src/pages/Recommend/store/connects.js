@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {setBannerList, setRecommendList} from "./actions";
+import {setBannerList, setRecommendList, setCurrentDisc} from "./actions";
 // connect(({})=>({}),{})
 
 export const recommendConnect = connect(
@@ -11,6 +11,7 @@ export const recommendConnect = connect(
   {
     setBannerList,
     setRecommendList,
+    setCurrentDisc,
   }
 );
 export const sliderConnect = connect(({recommend: {bannerList}}) => ({bannerList}), {});
