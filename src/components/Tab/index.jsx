@@ -29,10 +29,6 @@ const navList = [
     text: "歌手",
   },
   {
-    url: "/rank",
-    text: "排行",
-  },
-  {
     url: "/search",
     text: "搜索",
   },

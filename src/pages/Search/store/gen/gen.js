@@ -1,20 +1,12 @@
 const fs = require("fs");
 
-const StoreName = "PLAYER";
+const reducerName = "search";
+const StoreName = "SEARCH";
 const defaultState = {
-  singer: {},
-  playing: false,
-  fullScreen: false,
-  playList: [],
-  sequenceList: [],
-  mode: "",
-  currentIndex: -1,
-  currentSong: "",
-  playingLyric: "",
-  currentLineNum: 0,
-  currentLyric: "",
-  currentTime: 0,
-  showPlayList: false,
+  query: "",
+  showFlag: false,
+  result: [],
+  searchHistory: [],
 };
 const keys = Object.keys(defaultState);
 const constants = keys.map((key) => "SET_" + key.toUpperCase());
@@ -35,7 +27,7 @@ const action_func = (key, consts) => {
   if (defaultState[key] === false || defaultState[key] === true) {
     return `export function toggle${keyCap}() {
       return (dispatch, getState) => {
-        const {${key}} = getState();
+        const {${reducerName}:{${key}}} = getState();
         dispatch({
           type: ${consts},
           payload: !${key},

@@ -17,7 +17,7 @@ import {
   SET_NEWTIME,
   SET_CURRENTOFFSET,
 } from "./constants";
-import {shuffle} from "common/js/util";
+import {parseSongById} from "api/parse/song-parse";
 
 export function setSinger(singer) {
   return {
@@ -257,5 +257,25 @@ export function offsetChange(precent) {
     const currentSong = player.get("currentSong");
     const currentOffset = ~~(precent * currentSong.duration);
     dispatch(setCurrentOffset(currentOffset));
+  };
+}
+
+export function insertSong(song) {
+  return async (dispatch, getState) => {
+    const {player} = getState();
+    const {playList} = player;
+
+    playList.unshift(song);
+    dispatch(setFullScreen(true));
+    dispatch(setPlayList(playList));
+    dispatch(setCurrentIndex(0));
+    dispatch(setPlaying(true));
+  };
+}
+
+export function insertSongById(id) {
+  return async (dispatch) => {
+    const parsedSong = await parseSongById(id);
+    dispatch(insertSong(parsedSong));
   };
 }
